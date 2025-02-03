@@ -1,0 +1,95 @@
+{% load static %}
+<!doctype html>
+    <html lang="eng">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>Index</title>
+            
+            <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+            {% comment %} <link rel="stylesheet" href={% static "assets/css/plugins/owl.carousel.min.css sta" %}> {% endcomment %}
+            <link rel="stylesheet" href=" {% static "assets_glo/font/flaticon.css" %}">
+            <link rel="stylesheet" href=" {% static "assets_glo/css/all.min.css" %}">
+            <link rel="stylesheet" href=" {% static "assets_glo/css/fontawsom-all.min.css" %} ">
+            <link rel="stylesheet" href={% static "assets_glo/css/style.css" %} >
+        </head>
+        
+        </body>
+                <header>
+                    <div class="my-nav">
+                        <div class="container">
+                            <div class="nav-items">
+                                <div class="menu-toggle">
+                                    <div class="menu-burger"></div>
+                                </div>
+                                <div class="logo">
+                                
+                                    <img src="{% static "assets/images/logo/logo.svg" %} " alt="logo">
+                                </div>
+                                
+                                <div class="menu-items">
+                                    <div class="menu">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="contact-us.html">Contact Us</a></li>
+                                            <li><a href="{% url "login" %}" style=''>Connexion</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <section class="slider">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="banner-content">
+                                        <h1>Veillez patientez <span>Site en construction</span></h1>
+                                        <ol>
+                                            <li><a href="#">Learn More</a></li>
+                                            <li><a href="#">Get In Touch</a></li>
+                                        </ol>
+                                    </div>
+                                
+                                <img src="{% static "assets_glo/images/banner/slider-01.jpg" %}" alt="logo">
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="banner-content">
+                                        <h1>Making your business <span>ideas Come true</span></h1>
+                                        <ol>
+                                            <li><a href="#">Veillez patientez</a></li>
+                                            <li><a href="#">Site en construction</a></li>
+                                        </ol>
+                                    </div>
+                                <img class="d-block w-100" src=" {% static "assets_glo/images/banner/slider-02.jpg" %}">
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="banner-content">
+                                        <h1>Making your business <span>ideas Come true</span></h1>
+                                        <ol>
+                                            <li><a href="#">Veillez patientez</a></li>
+                                            <li><a href="#">Site en construction</a></li>
+                                        </ol>
+                                    </div>
+                                <img class="d-block w-100" src=" {% static "assets_glo/images/banner/slider-03.jpg" %}">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+        </body>
+
+</html>

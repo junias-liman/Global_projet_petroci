@@ -1,0 +1,42 @@
+
+            
+          
+
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+           TOTAL RECENT: {{ dates }}
+            
+          </div>
+          
+        <!-- ========== title-wrapper end ========== -->
+          <div class="row">
+            {% for i in veilles %}
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+           
+              <div class="icon-card mb-30">
+                <div class="icon purple">
+                  <i class="lni lni-cart-full"></i>
+                </div>
+                <div class="content">
+                  <h6 class="mb-10">Super-{{i.veil.type}}</h6>
+                  <h3 class="text-bold mb-10">{{ i.veil.valeur }} Francs</h3>
+                  <h3 class="text-bold mb-10"> {{ i.veil.quantite }} Litres</h3>
+                  <p class="text-sm text-success">
+                    <form action="{% url "super" %}" method='POST'>
+                      {% csrf_token %}
+                      <button type="submit" name="type" value="{{i.veil.type}}"   class="main-btn secondary-btn-outline rounded-full btn-hover">Ajouter</button>
+                    </form>
+                        
+                   
+                  </p>
+                </div>
+               
+              </div>
+             
+              <!-- End Icon Cart -->
+            </div>
+            {% endfor %}
+   
+          </div>
+         
+        
+          

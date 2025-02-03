@@ -1,0 +1,287 @@
+{% include "static.html" %}
+
+  <body>
+
+    <!-- ======== Preloader =========== -->
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
+    <!-- ======== Preloader =========== -->
+
+    <!-- ======== sidebar-nav start =========== -->
+  {% include "navbar.html" %}
+     <!-- ======== sidebar-nav end =========== -->
+
+
+    <!-- ======== main-wrapper start =========== -->
+    <main class="main-wrapper">
+
+      <!-- ========== header start ========== -->
+      {% include "header.html" %}
+      <!-- ========== header end ========== -->
+
+   
+      <section class="section">
+        <!-- ========== title-wrapper start ========== -->
+               <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="title-wrapper pt-30">
+                      <div class="row align-items-center">
+                        <div class="col-md-6">
+                          <div class="title">
+                            <h2>Essence Livraison</h2>
+                          </div>
+                        </div>
+                        <!-- end col -->
+                        <div class="col-md-6">
+                          <div class="breadcrumb-wrapper">
+                            <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                  <a href="dash">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                  Livraison
+                                </li>
+                              </ol>
+                            </nav>
+                          </div>
+                        </div>
+                        <!-- end col -->
+                      </div>
+                      <!-- end row -->
+                    </div>
+          
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                      TOTAL RECENT: 23-01-2025
+                      
+                    </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                               
+
+                                    <div class="icon-card mb-30">
+                                        <div class="icon purple">
+                                        <i class="lni lni-cart-full"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="mb-10">Ajout récent </h6>
+                                            <h3 class="text-bold mb-10">Cuve {{all_livraison.last.Cuve}}</h3>
+                                            <h3 class="text-bold mb-10">{{all_livraison.last.valeur}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{all_livraison.last.quantite}} Litres</h3>
+                                        </div>
+                                    </div>
+                                    <div class="icon-card mb-30">
+                                        <div class="icon success">
+                                            <i class="lni lni-alarm"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="mb-10">Cuve Super 1 </h6>
+                                            <h3 class="text-bold mb-10">{{cuvesuper1.last.valeur}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesuper1.last.quantite}} Litres</h3>
+                                        </div>
+                                    </div>
+                               
+                            </div>
+                            <!-- End Icon Cart -->
+                            
+                            
+                            <div class="col-lg-6">
+                                <!-- input style start -->
+                                <form action="{% url "livraison" %}" method='POST'>
+                                    <div class="card-style mb-30">
+                                        <h6 class="mb-25">Index du jour</h6>
+                                        <div class="input-style-1">
+                                            <label>En litres</label>
+                                            <input type="number" name="entrer" min=0 placeholder="Entrez l'index" />
+                                    </div>
+                                  
+                                    <!-- end input --> 
+                                 
+                                      {% csrf_token %}
+                                            <div class="row">
+                                                <div class="form-check radio-style radio-success mb-20 col-lg-4">
+                                                    <input class="form-check-input" type="radio" id="option1" name="choice" value="Super 1">
+                                                    <label  class="form-check-label" for="option1">Cuve Super 1</label>
+                                                </div>
+                                                <div class="form-check radio-style radio-success mb-20 col-lg-4">
+                                                    <input class="form-check-input" type="radio" id="option2" name="choice" value="Super 2">
+                                                    <label class="form-check-label" for="option2">Cuve Super 2</label>
+                                                </div>
+                                                <div class="form-check radio-style radio-success mb-20 col-lg-4">
+                                                    <input class="form-check-input" type="radio" id="option3" name="choice" value="Gazoil">
+                                                    <label class="form-check-label" for="option3">Cuve Gazoil</label>
+                                                </div>
+                                            </div>
+                                        
+                                           
+                                           
+                                    <div class="input-style-3">
+                                        
+                                        <button type="submit" name="name" value="{{i.veil.type}}"   class="main-btn secondary-btn-outline rounded-full btn-hover">Ajouter</button>
+                               
+                                      </div>
+                                    </form>
+                                </div>
+                               
+                                <!-- end card -->
+                               
+                            </div>
+                            <!-- End Col -->
+                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                               
+
+                                    <div class="icon-card mb-30">
+                                        <div class="icon orange">
+                                        <i class="lni lni-tab"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="mb-10">Cuve Super 2 </h6>
+                                            <h3 class="text-bold mb-10">{{cuvesuper2.last.valeur}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesuper2.last.quantite}} Litres</h3>
+                                        </div>
+                                    </div>
+                                    <div class="icon-card mb-30">
+                                        <div class="icon info">
+                                            <i class="lni lni-ubuntu"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="mb-10">Cuve Gazoil</h6>
+                                            <h3 class="text-bold mb-10">{{cuvesgazoil.last.valeur}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesgazoil.last.quantite}} Litres</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                            <!-- End Icon Cart -->
+                            </div>
+                            <!-- End Col -->
+                        </div>
+        
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                          TABLE
+                          
+                        </div>
+                    <!-- End Row -->
+                   
+                    
+                    
+                          <!-- End Title -->
+                           
+                          <div class="tables-wrapper">
+                            
+                              <div class="col-lg-12">
+                                <div class="card-style mb-30">
+                                  <h6 class="mb-0">Data Table-{{num.type }}</h6>
+                                 
+                                
+                                    
+                                  
+                                  <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th class="lead-info">
+                                            <h6>CUVE</h6>
+                                          </th>
+                                         
+                                          <th class="lead-phone">
+                                            <h6>QUANTITE</h6>
+                                          </th>
+                                         
+                                          <th class="lead-phone">
+                                            <h6>VALEUR</h6>
+                                          </th>
+                                        
+                                          <th class="lead-company">
+                                            <h6>DATE</h6>
+                                          </th>
+                                          <th>
+                                            <h6>ACTION</h6>
+                                          </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                      </thead>
+                              {% for sup in all_livraison %}
+                              <tbody>
+                               
+                               
+                              
+                                <tr>
+                                  <td>
+                                    
+                                      
+                                     <p class="text-sm">{{ sup.Cuve }}</p>
+                                    
+                                  </td>
+                                
+                                  <td>
+                                    <p class="text-sm">{{ sup.quantite }}</p>
+                                  </td>
+                                
+                                  <td>
+                                    <p class="text-sm">{{ sup.valeur }}</p>
+                                  </td>
+                                  
+                                  <td>
+                                    <p class="text-sm">{{ sup.date  }}</p>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button class="edit">
+                                        <i class="lni lni-pencil"></i>
+                                      </button>
+                                   
+                                      <button class="text-danger">
+                                        <i class="lni lni-trash-can"></i>
+                                      </button>
+                                    </div>
+                                  </td>
+                                </tr>
+              
+                              
+                              </tbody>
+                              {% endfor %}
+                            </table>
+                            <!-- End Table -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                  <!-- end container -->
+                </section>
+                <!-- ========== section end ========== -->
+              
+                <!-- ========== footer start =========== -->
+                <footer class="footer">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-6 order-last order-md-first">
+                        <div class="copyright text-center text-md-start">
+                          <p class="text-sm">
+                            Designed and Developed by
+                            <a href="https://plainadmin.com" rel="nofollow" target="_blank">
+                              PlainAdmin
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- end col-->
+                      <div class="col-md-6">
+                        <div class="terms d-flex justify-content-center justify-content-md-end">
+                          <a href="#0" class="text-sm">Term & Conditions</a>
+                          <a href="#0" class="text-sm ml-5">Privacy & Policy</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end row -->
+                  </div>
+                  <!-- end container -->
+                </footer>
+                <!-- ========== footer end =========== -->
+              </main>
+              
+              {% include "footer.html" %}

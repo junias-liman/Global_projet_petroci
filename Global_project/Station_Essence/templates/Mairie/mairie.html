@@ -1,0 +1,303 @@
+{% include "static.html" %}
+
+  <body>
+
+    <!-- ======== Preloader =========== -->
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
+    <!-- ======== Preloader =========== -->
+
+    <!-- ======== sidebar-nav start =========== -->
+  {% include "navbar.html" %}
+     <!-- ======== sidebar-nav end =========== -->
+
+
+    <!-- ======== main-wrapper start =========== -->
+    <main class="main-wrapper">
+
+      <!-- ========== header start ========== -->
+      {% include "header.html" %}
+      <!-- ========== header end ========== -->
+
+   
+      <section class="section">
+        <!-- ========== title-wrapper start ========== -->
+               <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="title-wrapper pt-30">
+                      <div class="row align-items-center">
+                        <div class="col-md-6">
+                          <div class="title">
+                            <h2>Essence Mairie</h2>
+                          </div>
+                        </div>
+                        <!-- end col -->
+                        <div class="col-md-6">
+                          <div class="breadcrumb-wrapper">
+                            <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                  <a href="{% url "dash" %}">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                  Mairie
+                                </li>
+                              </ol>
+                            </nav>
+                          </div>
+                        </div>
+                        <!-- end col -->
+                      </div>
+                      <!-- end row -->
+                    </div>
+          
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                       TOTAL RECENT: 23-01-2025
+                      
+                    </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                              <div class="icon-card mb-30">
+                                <div class="icon purple">
+                                  <i class="lni lni-cart-full"></i>
+                                  </div>
+                                  <div class="content">
+                                  <h6 class="mb-10">Ajout récent Gazoil</h6>
+                                  <h3 class="text-bold mb-10">{{aff_mairie.valeur_gaz}} Francs</h3>
+                                  <h3 class="text-bold mb-10">{{aff_mairie.veilgaz.veille}} Litres</h3>
+
+                                </div>
+                             </div>
+                             <div class="icon-card mb-30">
+                              <div class="icon purple">
+                                <i class="lni lni-cart-full"></i>
+                                </div>
+                                <div class="content">
+                                <h6 class="mb-10">Ajout récent Super</h6>
+                                <h3 class="text-bold mb-10">{{aff_mairie.valeur_sup}} Francs</h3>
+                                <h3 class="text-bold mb-10">{{aff_mairie.veilsup.veille}} Litres</h3>
+
+                              </div>
+                           </div>
+                            </div>
+                            
+                           
+                            
+                            <div class="col-lg-6">
+                              <form action="{% url "mairie" %}" method='POST'>
+                                {% csrf_token %}
+                                <!-- input style start -->
+                                <div class="card-style mb-30">
+                                    <h6 class="mb-25">Index du jour</h6>
+                                  
+                                    <!-- end input -->
+                                    <div class="input-style-2">
+                                        <input type="number" name='input_maire' placeholder="Quantité" />
+                                
+                                    </div>
+                                    {% comment %} <div class="select-style-1">
+                                      <h6 class="mb-25">Type d'essence</h6>
+                                      <div class="select-position">
+                                        <select class="light-bg">
+                                       
+                                          <option value="">Super</option>
+                                          <option value="">Gazoil</option>
+                                        </select>
+                                      </div>
+                                    {% endcomment %}
+                                    <!-- end input -->
+                                  
+                                   
+                                    <!-- end input -->
+
+                                          <div class="row">
+                                              <div class="form-check radio-style radio-success mb-20 col-lg-4">
+                                                  <input class="form-check-input" type="radio" id="option1" name="choice" value="Super">
+                                                  <label  class="form-check-label" for="option1">Super</label>
+                                              </div>
+                                              <div class="form-check radio-style radio-success mb-20 col-lg-4">
+                                                  <input class="form-check-input" type="radio" id="option2" name="choice" value="Gazoil">
+                                                  <label class="form-check-label" for="option2">Gazoil</label>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="form-check radio-style radio-info mb-20 col-lg-4">
+                                                  <input class="form-check-input" type="radio" id="option3" name="type_pay" value="Credit">
+                                                  <label class="form-check-label" for="option3">Credit</label>
+                                              </div>
+                                              <div class="form-check radio-style radio-info mb-20 col-lg-4">
+                                                <input class="form-check-input" type="radio" id="option3" name="type_pay" value="Cash">
+                                                <label class="form-check-label" for="option3">Cash</label>
+                                          </div>
+                                          
+                                        <div class="input-style-3">
+                                        
+                                            <button type="submit" name="{{i.veil.type}}" value="{{i.veil.type}}"   class="main-btn secondary-btn-outline rounded-full btn-hover">Ajouter</button>
+                                         
+                                        </div>
+                                       </form>  
+                                   
+                                </div>
+                              </div>
+                                <!-- end card -->
+                               
+                            </div>
+                            <!-- End Col -->
+                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="icon-card mb-30">
+                                <div class="icon orange">
+                                <i class="lni lni-tag"></i>
+                                </div>
+                                <div class="content">
+                                <h6 class="mb-10">Totoal Mairie</h6>
+                                <h3 class="text-bold mb-10">{{ aff_mairie.toto   }} Francs</h3>
+                                <h3 class="text-bold mb-10">{{ aff_mairie.litre }} Litres</h3>
+                                </div>
+                            </div>
+                            <!-- End Icon Cart -->
+                            </div>
+                            <!-- End Col -->
+                        </div>
+        
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                          TABLE
+                          
+                        </div>
+                        
+                              <!-- End Title -->
+                               
+                              <div class="tables-wrapper">
+                                
+                                  <div class="col-lg-12">
+                                    <div class="card-style mb-30">
+                                      <h6 class="mb-0">Data Table</h6>
+                                     
+                                    
+                                        
+                                      
+                                      <div class="table-wrapper table-responsive">
+                                    <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th class="lead-info">
+                                                <h6>INDEX_VEILLE</h6>
+                                              </th>
+                                              <th class="lead-email">
+                                                <h6>INDEX_JOUR</h6>
+                                              </th>
+                                              <th class="lead-phone">
+                                                <h6>QUANTITE</h6>
+                                              </th>
+                                             
+                                              <th class="lead-phone">
+                                                <h6>VALEUR</h6>
+                                              </th>
+                                            
+                                              <th class="lead-phone">
+                                                <h6>TYPE</h6>
+                                              </th>
+                                              <th class="lead-phone">
+                                                <h6>MODE PAIEMENT</h6>
+                                              </th>
+                                              
+                                              <th class="lead-company">
+                                                <h6>DATE</h6>
+                                              </th>
+                                              <th>
+                                                <h6>ACTION</h6>
+                                              </th>
+                                            </tr>
+                                            <!-- end table row-->
+                                          </thead>
+                                  {% for gaz in all_mairie %}
+                                  <tbody>
+                                   
+                                   
+                                  
+                                    <tr>
+                                      <td>
+                                        
+                                          
+                                          <p class="text-sm">{{ gaz.veille }}</p>
+                                        
+                                      </td>
+                                      <td>
+                                        <p class="text-sm">{{ gaz.jour }}</p>
+                                      </td>
+                                      <td>
+                                        <p class="text-sm">{{ gaz.quantite }}</p>
+                                      </td>
+                                     
+                                      <td>
+                                        <p class="text-sm">{{ gaz.valeur }}</p>
+                                      </td>
+                                     
+                                      <td>
+                                        <p class="text-sm">{{ gaz.type }}</p>
+                                      </td>
+                                      <td>
+                                        <p class="text-sm">{{ gaz.type_pay }}</p>
+                                      </td>
+                                      <td>
+                                        <p class="text-sm">{{ gaz.date  }}</p>
+                                      </td>
+                                      <td>
+                                        <div class="action justify-content-end">
+                                          <button class="edit">
+                                            <i class="lni lni-pencil"></i>
+                                          </button>
+                                       
+                                          <button class="text-danger">
+                                            <i class="lni lni-trash-can"></i>
+                                          </button>
+                                        </div>
+                                      </td>
+                                    </tr>
+                  
+                                  
+                                  </tbody>
+                                  {% endfor %}
+                                </table>
+                                <!-- End Table -->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                      </div>
+                      <!-- end container -->
+                    </section>
+                    <!-- ========== section end ========== -->
+                  
+                    <!-- ========== footer start =========== -->
+                    <footer class="footer">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-6 order-last order-md-first">
+                            <div class="copyright text-center text-md-start">
+                              <p class="text-sm">
+                                Designed and Developed by
+                                <a href="https://plainadmin.com" rel="nofollow" target="_blank">
+                                  PlainAdmin
+                                </a>
+                              </p>
+                            </div>
+                          </div>
+                          <!-- end col-->
+                          <div class="col-md-6">
+                            <div class="terms d-flex justify-content-center justify-content-md-end">
+                              <a href="#0" class="text-sm">Term & Conditions</a>
+                              <a href="#0" class="text-sm ml-5">Privacy & Policy</a>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end row -->
+                      </div>
+                      <!-- end container -->
+                    </footer>
+                    <!-- ========== footer end =========== -->
+                  </main>
+                  
+                  {% include "footer.html" %}
