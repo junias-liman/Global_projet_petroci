@@ -9,21 +9,11 @@ class Essence(models.Model):
       date=models.DateField()
       type=models.CharField(max_length=50)
       
-class Super(models.Model):  
-      veille=models.IntegerField()
-      jour=models.IntegerField()
+class Special_cuve(models.Model):  
+      cuve=models.CharField(max_length=50)
       quantite=models.IntegerField()
-      valeur=models.IntegerField()
-      date=models.DateField()
-      type=models.IntegerField()
        
-class Gazoil(models.Model):  
-      veille=models.IntegerField()
-      jour=models.IntegerField()
-      quantite=models.IntegerField()
-      valeur=models.IntegerField()
-      date=models.DateField()
-      type=models.IntegerField()
+
       
 class Mairie(models.Model):
       veille=models.IntegerField()
@@ -40,9 +30,7 @@ class Livraison(models.Model):
       date=models.DateField()
       Cuve=models.CharField(max_length=50)
       
-class User(models.Model):
-   
-    
+class User(models.Model): 
     Identifiant=models.CharField(max_length=50)
     Password=models.CharField(max_length=50)
    

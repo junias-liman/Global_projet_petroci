@@ -1,5 +1,5 @@
 {% include "static.html" %}
-
+{% load humanize %}
   <body>
 
     <!-- ======== Preloader =========== -->
@@ -64,7 +64,7 @@
                                   </div>
                                   <div class="content">
                                   <h6 class="mb-10">Ajout récent Gazoil</h6>
-                                  <h3 class="text-bold mb-10">{{aff_mairie.valeur_gaz}} Francs</h3>
+                                  <h3 class="text-bold mb-10">{{aff_mairie.valeur_gaz | intcomma}} Francs</h3>
                                   <h3 class="text-bold mb-10">{{aff_mairie.veilgaz.veille}} Litres</h3>
 
                                 </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="content">
                                 <h6 class="mb-10">Ajout récent Super</h6>
-                                <h3 class="text-bold mb-10">{{aff_mairie.valeur_sup}} Francs</h3>
+                                <h3 class="text-bold mb-10">{{aff_mairie.valeur_sup | intcomma}} Francs</h3>
                                 <h3 class="text-bold mb-10">{{aff_mairie.veilsup.veille}} Litres</h3>
 
                               </div>
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="content">
                                 <h6 class="mb-10">Totoal Mairie</h6>
-                                <h3 class="text-bold mb-10">{{ aff_mairie.toto   }} Francs</h3>
+                                <h3 class="text-bold mb-10">{{ aff_mairie.toto | intcomma }} Francs</h3>
                                 <h3 class="text-bold mb-10">{{ aff_mairie.litre }} Litres</h3>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
                                       </td>
                                      
                                       <td>
-                                        <p class="text-sm">{{ gaz.valeur }}</p>
+                                        <p class="text-sm">{{ gaz.valeur | intcomma}}</p>
                                       </td>
                                      
                                       <td>

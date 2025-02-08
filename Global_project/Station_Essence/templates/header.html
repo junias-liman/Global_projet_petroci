@@ -1,3 +1,4 @@
+{% load humanize %}
 {% load static %}
 <header class="header">
     <div class="container-fluid">
@@ -8,12 +9,6 @@
               <button id="menu-toggle" class="main-btn primary-btn btn-hover">
                 <i class="lni lni-chevron-left me-2"></i> Menu
               </button>
-            </div>
-            <div class="header-search d-none d-md-flex">
-              <form  action="">
-                <input  type="text" placeholder="Search..." />
-                <button type='submit' ><i class="lni lni-search-alt"></i></button>
-              </form>
             </div>
           </div>
         </div>
@@ -30,7 +25,7 @@
                 {% csrf_token %}
               <div style="display: inline-block;">
                 <label for='prix_super' >Prix super : </label>
-                <input name="prix_sup" style="padding-left: 10px; border: none; background: rgba(239, 239, 239, 0.5); height: 50px; width:70px;" class="w-30" type="number"  value={{prix.prix_super}} name="prix_super"  />
+                <input name="prix_sup" style="padding-left: 10px; border: none; background: rgba(239, 239, 239, 0.5); height: 50px; width:70px;" class="w-30" type="number"  value={{prix.prix_super }} name="prix_super"  />
                 
               </div>  
               <div style="display: inline-block;">

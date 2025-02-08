@@ -1,5 +1,5 @@
 {% include "static.html" %}
-
+{% load humanize %}
   <body>
 
     <!-- ======== Preloader =========== -->
@@ -68,8 +68,8 @@
                 </div>
                 <div class="content">
                   <h6 class="mb-10">Super</h6>
-                  <h3 class="text-bold mb-10">{{  valsup }} Francs</h3>
-                  <h3 class="text-bold mb-10">{{  total_sup }} Litres</h3>
+                  <h3 class="text-bold mb-10">{{  valsup | intcomma }} Francs</h3>
+                  <h3 class="text-bold mb-10">{{  total_sup | intcomma }} Litres</h3>
                   {% comment %} <p class="text-sm text-success">
                     <i class="lni lni-arrow-up"></i> +2.00%
                     <span class="text-gray">(30 days)</span>
@@ -87,8 +87,8 @@
                 </div>
                 <div class="content">
                   <h6 class="mb-10">Gazoil</h6>
-                  <h3 class="text-bold mb-10"> {{valgaz}} Francs</h3>
-                  <h3 class="text-bold mb-10">{{total_gaz}} Litres</h3>
+                  <h3 class="text-bold mb-10"> {{valgaz | intcomma}} Francs</h3>
+                  <h3 class="text-bold mb-10">{{total_gaz | intcomma}} Litres</h3>
                   {% comment %} <p class="text-sm text-success">
                     <i class="lni lni-arrow-up"></i> +5.45%
                     <span class="text-gray">Increased</span>
@@ -98,14 +98,15 @@
               <!-- End Icon Cart -->
             </div>
             <!-- End Col -->
+            {% for cuve in cuves %}
             <div class="col-xl-3 col-lg-4 col-sm-6">
               <div class="icon-card mb-30">
                 <div class="icon primary">
                   <i class="lni lni-credit-cards"></i>
                 </div>
                 <div class="content">
-                  <h6 class="mb-10"> Cuve Super 1</h6>
-                  <h3 class="text-bold mb-10">74,567 Francs</h3>
+                  <h6 class="mb-10"> Cuve  {{ cuve.cuve | intcomma}} </h6>
+                  <h3 class="text-bold mb-10">{{ cuve.quantite | intcomma}} Francs</h3>
                   <h3 class="text-bold mb-10">74,567 Litres</h3>
                   {% comment %} <p class="text-sm text-danger">
                     <i class="lni lni-arrow-down"></i> -2.00%
@@ -114,46 +115,14 @@
                 </div>
               </div>
               <!-- End Icon Cart -->
+               
             </div>
             <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon orange">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">Cuve Super 2</h6>
-                  <h3 class="text-bold mb-10">74,567 Francs</h3>
-                  <h3 class="text-bold mb-10">74,567 Litres</h3>
-                  {% comment %} <p class="text-sm text-danger">
-                    <i class="lni lni-arrow-down"></i> -25.00%
-                    <span class="text-gray"> Earning</span>
-                  </p> {% endcomment %}
-                </div>
-              </div>
+        
+         
+              {% endfor %}
               <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-          </div>
-          
-          <div class="row">
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon success">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">Cuve Gazoil</h6>
-                  <h3 class="text-bold mb-10"> Francs</h3>
-                  <h3 class="text-bold mb-10">74,567 Litres</h3>
-                  {% comment %} <p class="text-sm text-danger">
-                    <i class="lni lni-arrow-down"></i> -2.00%
-                    <span class="text-gray">Expense</span>
-                  </p> {% endcomment %}
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
+            
             <div class="col-xl-3 col-lg-4 col-sm-6">
               <div class="icon-card mb-30">
                 <div class="icon primary">
@@ -161,8 +130,8 @@
                 </div>
                 <div class="content">
                   <h6 class="mb-10">Mairie</h6>
-                  <h3 class="text-bold mb-10">{{total_mairie_som}} Francs</h3>
-                  <h3 class="text-bold mb-10">74,567 Litres</h3>
+                  <h3 class="text-bold mb-10">{{total_mairie_som | intcomma}} Francs</h3>
+                  <h3 class="text-bold mb-10">{{total_mairie_lit | intcomma}} Litres</h3>
                   {% comment %} <p class="text-sm text-danger">
                     <i class="lni lni-arrow-down"></i> -2.00%
                     <span class="text-gray">Expense</span>
@@ -173,7 +142,7 @@
             </div>
 
           </div>
-
+         
 
           <div class="alert alert-primary alert-dismissible fade show" role="alert">
             BILAN

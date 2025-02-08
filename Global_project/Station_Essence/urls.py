@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path 
-from Station_Essence.views import login,dash_essens,navbar,entete,dash,mairie,livraison,sign,essence,sup,gaz
+from Station_Essence.views import login,dash_essens,navbar,entete,dash,mairie,livraison,essence
 
 
 urlpatterns = [
     
     #page de connexion
     path('login/',login,name="login"),
-    path('signup/',sign,name="sign"),
+    
     
     #les pages de tableau de bord général et celui de l'essence
     path('Dashboard_Essence/',dash_essens,name="dash"),
@@ -34,13 +34,7 @@ urlpatterns = [
     path('entete/',entete,name='entete'),
     
     
-    #les chemins des supers
-    # path('Super/super/',super,name='super'),
-   
-    
-    #les demins des gazoils
-    
-    # path('Gazoil/gazoil/',gazoil,name='gazoil'),
+
 
    
     #l'url de la mairie
@@ -52,6 +46,5 @@ urlpatterns = [
     path('livraison/',livraison,name='livraison'),
     
     path('essence/',essence,name='essence'),
-    path('essence_sup/',sup,name='ess_sup'),
-    path('essence_gaz/',gaz,name='ess_gaz'),
+   
 ]

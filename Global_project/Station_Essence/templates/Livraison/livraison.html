@@ -1,5 +1,5 @@
 {% include "static.html" %}
-
+{% load humanize %}
   <body>
 
     <!-- ======== Preloader =========== -->
@@ -67,8 +67,8 @@
                                         <div class="content">
                                             <h6 class="mb-10">Ajout récent </h6>
                                             <h3 class="text-bold mb-10">Cuve {{all_livraison.last.Cuve}}</h3>
-                                            <h3 class="text-bold mb-10">{{all_livraison.last.valeur}} Francs</h3>
-                                            <h3 class="text-bold mb-10">{{all_livraison.last.quantite}} Litres</h3>
+                                            <h3 class="text-bold mb-10">{{all_livraison.last.valeur | intcomma}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{all_livraison.last.quantite | intcomma}} Litres</h3>
                                         </div>
                                     </div>
                                     <div class="icon-card mb-30">
@@ -77,8 +77,8 @@
                                         </div>
                                         <div class="content">
                                             <h6 class="mb-10">Cuve Super 1 </h6>
-                                            <h3 class="text-bold mb-10">{{cuvesuper1.last.valeur}} Francs</h3>
-                                            <h3 class="text-bold mb-10">{{cuvesuper1.last.quantite}} Litres</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesuper1.last.valeur | intcomma}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesuper1.last.quantite | intcomma}} Litres</h3>
                                         </div>
                                     </div>
                                
@@ -137,8 +137,8 @@
                                         </div>
                                         <div class="content">
                                             <h6 class="mb-10">Cuve Super 2 </h6>
-                                            <h3 class="text-bold mb-10">{{cuvesuper2.last.valeur}} Francs</h3>
-                                            <h3 class="text-bold mb-10">{{cuvesuper2.last.quantite}} Litres</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesuper2.last.valeur | intcomma}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesuper2.last.quantite | intcomma}} Litres</h3>
                                         </div>
                                     </div>
                                     <div class="icon-card mb-30">
@@ -147,8 +147,8 @@
                                         </div>
                                         <div class="content">
                                             <h6 class="mb-10">Cuve Gazoil</h6>
-                                            <h3 class="text-bold mb-10">{{cuvesgazoil.last.valeur}} Francs</h3>
-                                            <h3 class="text-bold mb-10">{{cuvesgazoil.last.quantite}} Litres</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesgazoil.last.valeur | intcomma}} Francs</h3>
+                                            <h3 class="text-bold mb-10">{{cuvesgazoil.last.quantite | intcomma}} Litres</h3>
                                         </div>
                                     </div>
                                 </div>
