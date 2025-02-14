@@ -17,6 +17,9 @@
         {% comment %} <img src="https://drive.google.com/uc?export=view&id=1bKgdKUQ2Uhx6rjY7LNTuBjLfZhJxKVSq" alt="illustration" class="illustration" /> {% endcomment %}
         <h1 class="opacity">LOGIN</h1>
         <form action="#" method='post'>
+          {% if error %}
+          <p style="color:red;">{{error}}</p>
+          {% endif %}
           {% csrf_token %}
           <input type="text" name='user' placeholder="USERNAME" />
           {% if error1 %}

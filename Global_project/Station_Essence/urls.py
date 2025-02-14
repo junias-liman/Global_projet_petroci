@@ -16,14 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path 
-from Station_Essence.views import login,dash_essens,navbar,entete,dash,mairie,livraison,essence
+from Station_Essence.views import dash_essens,navbar,entete,dash,mairie,livraison,essence, logout_user
 
 
 urlpatterns = [
-    
-    #page de connexion
-    path('login/',login,name="login"),
-    
+
+    #logout
+    path('logout/',logout_user,name='logout'),
     
     #les pages de tableau de bord général et celui de l'essence
     path('Dashboard_Essence/',dash_essens,name="dash"),

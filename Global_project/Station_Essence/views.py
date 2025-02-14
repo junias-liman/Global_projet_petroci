@@ -3,8 +3,9 @@ from Station_Essence.models import *
 import datetime
 import platform,json
 from django.shortcuts import get_object_or_404
-#Pour s'identifier avant d'entrée dans le dashboad
-
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 def change_os_chemin(url):
     return '\\'.join(url) if platform.platform()=='windows' else '/'.join(url)
@@ -12,32 +13,31 @@ def change_os_chemin(url):
 dates=str(datetime.datetime.now().date())
 
 
-
-def login(request):
-    admin=request.POST.get('user')
-    passwd=request.POST.get('pwd')
+def login_user(request):
+    error = None
     if request.method=='POST':
-        forms=User.objects.all()    
-        for use in forms :
-                print('ici')
-                if use.Identifiant==admin and use.Password==passwd:
-                    return redirect('dashs')
-                elif use.Identifiant!=admin and use.Password==passwd :
-                    return render(request,"login.html",context={"error1":1})
-                elif use.Password!=passwd and use.Identifiant==admin:
-                    return render(request,"login.html",context={"error2":1})
-                else:
-                    return render(request,"login.html",context={"error2":1,"error1":1})
-                
-    return render(request,'login.html')
+        username = request.POST.get('user')
+        passwd=request.POST.get('pwd')
+        user = authenticate(request, username=username, password=passwd)
+        if user:
+            login(request,user)
+            return redirect('dashs')
+        else:
+            error = "Données incorrectes ! Veuillez réessayer"     
+    return render(request,'login.html', context={"error":error})
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return redirect('login')
 
 #les différents tableau de bord du projet global et de la station 
-
+@login_required
 def dash(request):
     return render(request,change_os_chemin(['dashboard','index.html']))
 
 
-
+@login_required
 def dash_essens(request):
     cuves=Special_cuve.objects.all()
     
@@ -94,6 +94,7 @@ def dash_essens(request):
             
 
 #Essence composé de super et gazoil
+@login_required
 def essence(request):
     somme_j=0
     somme_v=0
@@ -202,6 +203,7 @@ def essence(request):
 
 
 #les différents parties du dashboard
+@login_required
 def entete(request):
     
     return render(request,change_os_chemin(['dashboard_essence','header.html']))
@@ -220,7 +222,7 @@ def footer(request):
 
 
 #la mairie 
-
+@login_required
 def mairie(request):
     mairie=Mairie.objects.all()
     lec={}        
@@ -284,7 +286,7 @@ def mairie(request):
 
 
 #la livraison
-
+@login_required
 def livraison(request):
     
     
